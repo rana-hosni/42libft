@@ -6,13 +6,12 @@
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:09:19 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/17 12:01:22 by relgheit         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:46:21 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-// #include <stdio.h>
 int	ft_isalpha(int c)
 {
 	if ((c < 97 || c > 122) && (c < 65 || c > 90))

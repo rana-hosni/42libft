@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:27:53 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/25 10:40:38 by relgheit         ###   ########.fr       */
+/*   Created: 2024/09/18 13:34:42 by relgheit          #+#    #+#             */
+/*   Updated: 2024/09/25 10:39:17 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_strchr(const char *str, int c)
 {
-	if (c >= 97 && c <= 122)
+	while (*str)
 	{
-		c = c - 32;
-		return (c);
+		if ((char) c == *str)
+			return ((char *)str);
+		str++;
 	}
-	return (c);
+	if ((char) c == '\0')
+		return ((char *)str);
+	return (0);
 }
 
-// int	main (void)
+// int main()
 // {
-// 	int	i;
-// 	i	= 0;
-// 	char	str[] = "hello WORld!!";
-// 	while (str[i])
-// 	{
-// 		printf("%c",ft_toupper(str[i]));
-// 		i++;
-// 	}
+//     const char str[] = " hello";
+//     char    c;
+//     c = ' ';
+//     printf("%s",ft_strchr(str, c));
 // }

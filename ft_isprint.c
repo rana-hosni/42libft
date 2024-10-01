@@ -6,16 +6,17 @@
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:15:02 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/17 12:26:08 by relgheit         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:45:39 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
-{
-    if (!(c >= 32 && c < 127))
-		{
-			return (0);
-		}
-    return (1);
-}
+#include "libft.h"
 
+int	ft_isprint(int c)
+{
+	if (!(c >= 32 && c < 127))
+	{
+		return (0);
+	}
+	return (1);
+}

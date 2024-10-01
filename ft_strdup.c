@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:27:53 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/25 10:40:38 by relgheit         ###   ########.fr       */
+/*   Created: 2024/09/26 11:31:41 by relgheit          #+#    #+#             */
+/*   Updated: 2024/09/26 12:13:28 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_toupper(int c)
+// #include <stdio.h>
+char	*ft_strdup(const char *s)
 {
-	if (c >= 97 && c <= 122)
-	{
-		c = c - 32;
-		return (c);
-	}
-	return (c);
-}
+	char	*p;
+	size_t	size;
 
-// int	main (void)
+	size = ft_strlen(s) + 1;
+	p = malloc(size + 1);
+	if (p == NULL)
+		return (NULL);
+	ft_strlcpy(p, s, size);
+	return (p);
+}
+// int	main()
 // {
-// 	int	i;
-// 	i	= 0;
-// 	char	str[] = "hello WORld!!";
-// 	while (str[i])
-// 	{
-// 		printf("%c",ft_toupper(str[i]));
-// 		i++;
-// 	}
+// 	char *s = "Hello";
+// 	printf("%s", ft_strdup(s));
 // }

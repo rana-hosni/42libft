@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:27:53 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/25 10:40:38 by relgheit         ###   ########.fr       */
+/*   Created: 2024/09/30 17:53:12 by relgheit          #+#    #+#             */
+/*   Updated: 2024/09/30 17:59:03 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= 97 && c <= 122)
+	while (*s)
 	{
-		c = c - 32;
-		return (c);
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	return (c);
 }
-
-// int	main (void)
-// {
-// 	int	i;
-// 	i	= 0;
-// 	char	str[] = "hello WORld!!";
-// 	while (str[i])
-// 	{
-// 		printf("%c",ft_toupper(str[i]));
-// 		i++;
-// 	}
-// }

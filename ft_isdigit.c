@@ -6,30 +6,17 @@
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:34:55 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/17 12:01:30 by relgheit         ###   ########.fr       */
+/*   Updated: 2024/09/25 08:50:21 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// #include <stdio.h>
 int	ft_isdigit(int c)
 {
-
 	if (!(c >= 48 && c <= 57))
 	{
 		return (0);
 	}
 	return (1);
 }
-	
-// int main()
-// {
-// int	i;
-// 	i	= 0;
-// 	char	str[] = "hrHF9o*";
-// 	while (str[i])
-// 	{
-// 		printf("%d",ft_isdigit(str[i]));
-// 		i++;
-// 	}
-// }

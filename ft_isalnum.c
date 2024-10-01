@@ -6,22 +6,20 @@
 /*   By: relgheit <relgheit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:53:03 by relgheit          #+#    #+#             */
-/*   Updated: 2024/09/17 12:46:51 by relgheit         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:32:49 by relgheit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// #include <stdio.h>
 int	ft_isalnum(int c)
 {
-
 	if (((c < 97 || c > 122) && (c < 65 || c > 90)) && (c < 48 || c > 57))
 	{
 		return (0);
 	}
 	return (1);
 }
-
 // int	main (void)
 // {
 // 	int	i;
