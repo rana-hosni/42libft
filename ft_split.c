@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rana <rana@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 10:22:24 by relgheit          #+#    #+#             */
-/*   Updated: 2024/10/06 12:56:11 by rana             ###   ########.fr       */
+/*   Created: 2021/08/18 12:04:27 by elraira-          #+#    #+#             */
+/*   Updated: 2024/10/06 15:24:01 by rana             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	count_word(char *s, char c)
 
 	i = 1;
 	count = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == c && s[i - 1] != c)
@@ -30,77 +32,30 @@ static int	count_word(char *s, char c)
 	return (count);
 }
 
-static char	*the_word(const char *s, char c)
-{
-	char	*word;
-	int		i;
-
-	i = 0;
-	while (s[i] != c && s[i] != '\0')
-		i++;
-	word = malloc(sizeof(char) * i + 1);
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (s[i] != c && s[i] != '\0')
-	{
-		word[i] = s[i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-static char	**free_all(char **arr, int i)
-{
-	while (i >= 0)
-	{
-		free(arr[i]);
-		i--;
-	}
-	free(arr);
-	return (NULL);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
+	size_t	word_len;
 	int		i;
-	size_t	j;
 
+	arr = (char **)malloc((count_word((char *)s, c) + 1) * sizeof(char *));
+	if (!s || !arr)
+		return (0);
 	i = 0;
-	j = 0;
-	arr = malloc(sizeof(char *) * (count_word((char *)s, c) + 1));
-	if (!arr || !s)
-		return (NULL);
-	while (i < count_word((char *)s, c))
+	while (*s)
 	{
-		while (s[j] == c)
-			j++;
-		arr[i] = the_word(&s[j], c);
-		if (!arr[i])
+		while (*s == c && *s)
+			s++;
+		if (*s)
 		{
-			free_all(arr, i - 1);
-			return (NULL);
+			if (!ft_strchr(s, c))
+				word_len = ft_strlen(s);
+			else
+				word_len = ft_strchr(s, c) - s;
+			arr[i++] = ft_substr(s, 0, word_len);
+			s += word_len;
 		}
-		i++;
-		while (s[j] != c && s[j] != '\0')
-			j++;
 	}
 	arr[i] = NULL;
 	return (arr);
-}
-#include <stdio.h>
-int main(void)
-{
-	char **tabstr = ft_split("hello world", ' ');
-	int i = 0;
-	// printf("Calling count from main, count = %d\n", count_word("ahmed helmi", ' '));
-	while (tabstr[i] != NULL)
-			{
-				printf("%s", tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-	return 0;
 }
